@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- Additional CSS -->
+    {% block css %}
+    {% endblock %}
+    <title>Secret Santa's Candy Cane Countdown {% block extra_title %}{% endblock %}</title>
+  </head>
+  <body>
+    <!-- Header -->
+    {% block header %}
+    {% endblock %}
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+    {% endblock %}
+
+    <!-- JavaScript -->
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/base.js' %}"></script>
+    <!-- Additional JS -->
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>
