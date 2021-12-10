@@ -117,14 +117,6 @@ main {
     src: url('../fonts/candyman.ttf') format("truetype");
   }
 
-/* .logo-container {
-    text-align: center;
-} */
-
-/* .font-christmas {
-    font-family: 'Mountains of Christmas', cursive;
-} */
-
 .font-candyman {
     font-family: "Candyman", sans-serif;
     color:#923226;
