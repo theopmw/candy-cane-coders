@@ -176,5 +176,7 @@ main {
 }
 
 .snow-bg {
-    background: url("../../media/snow03.gif");
+    background: url('../images/snow03.gif');
+    background-size: contain;
+    min-height: 100vh;
 }
