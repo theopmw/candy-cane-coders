@@ -15,12 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('countdown/', include('countdown.urls')),
-    path('gifts/', include('gifts.urls')),
-    path('profiles/', include('profiles.urls')),
-    path('', include('home.urls')),
-]
+    path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
+    path("countdown/", include("countdown.urls")),
+    path("gifts/", include("gifts.urls")),
+    path("profiles/", include("profiles.urls")),
+    path("", include("home.urls")),
+    path(
+        "favicon.ico",
+        RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
+    ),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
