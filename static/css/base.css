@@ -122,6 +122,10 @@ main {
     color:#923226;
 }
 
+.logo-container {
+    margin-top: 20px;
+}
+
 .logo-text {
     font-size: 3rem;
     padding: 0;
