@@ -32,11 +32,6 @@
     box-sizing: border-box;
     position: relative;
     overflow: visible;
-    /* IE9 & 10 */
-    -webkit-transition: 500ms linear;
-    -moz-transition: 500ms linear;
-    -o-transition: 500ms linear;
-    transition: 500ms linear;
     outline: none;
     border-radius: 15px;
     border: 1px solid #4c0300;
@@ -79,6 +74,11 @@
         /* gradient */
         1px 1px 3px rgba(0, 0, 0, 0.75);
     /* shadow */
+    /* IE9 & 10 */
+    -webkit-transition: 500ms linear;
+    -moz-transition: 500ms linear;
+    -o-transition: 500ms linear;
+    transition: 500ms linear;
 }
 
 .about:focus {
@@ -108,6 +108,7 @@
         top: unset;
         transform: unset;
         position: static;
+
         margin: 15% auto;
         padding: 5% 0;
     }
@@ -120,5 +121,17 @@
 @media screen and (max-width: 768px) {
     #about-h3 {
         font-size: 1rem;
+    }
+
+        margin: 5% auto;
+        padding: 100px 0 20px;
+    }
+
+    .about {
+        width: 100%;
+    }
+
+    .about-button {
+        width: 80vw;
     }
 }
