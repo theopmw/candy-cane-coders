@@ -12,16 +12,47 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Additional CSS -->
     {% block css %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
     {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
     <title>Secret Santa's Candy Cane Countdown {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <!-- Header -->
     {% block header %}
+    <header>
+      <div class="logo-container uk-position-top-center uk-flex uk-flex-middle">
+            <img class="logo-image" src="{{ MEDIA_URL }}present.png" alt="Logo gift">
+            <h1 class="logo-text font-candyman">Secret Santa</h1>
+            <img class="logo-image" src="{{ MEDIA_URL }}present.png" alt="Logo gift">   
+      </div>
+      <!-- <div>
+        <h3 class="font-christmas">By the Candy Cane Coders</h3>
+      </div> -->
+      <!-- <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-center">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">Active</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+    
+        </div>
+      </nav> -->
+    </header>
+    
     {% endblock %}
     <!-- Main Content -->
     <main>
         {% block content %}
+        
         {% endblock %}
     </main>
 
