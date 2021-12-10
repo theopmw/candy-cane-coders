@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
+@font-face {
+  font-family: 'Candy Time';
+  src: url('../fonts/candy_time.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'Candyman';
+  src: url('../fonts/candyman.ttf') format("truetype");
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -107,6 +117,24 @@ main {
     min-height: 100vh;
 }
 
+.font-candyman {
+    font-family: "Candyman", sans-serif;
+    color:#923226;
+}
+
+.logo-text {
+    font-size: 3rem;
+    padding: 0;
+    margin: 5px;
+}
+
+.logo-image {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    margin: 10px 5px 20px 5px;
+}
+
 /* ALLAUTH */
 .allauth-container {
     position: absolute;
@@ -119,4 +147,35 @@ main {
 .allauth-form {
     width: 100%;
     margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+    .logo-text {
+        font-size: 4rem;
+        padding: 0;
+        margin: 5px;
+    }
+    
+    .logo-image {
+        height: 3rem;
+        width: 3rem;
+        padding: 0;
+        margin: 11px 5px 20px 5px;
+    }
+
+}
+
+@media screen and (min-width: 960px) {
+    .logo-text {
+        font-size: 6rem;
+        padding: 0;
+        margin: 5px;
+    }
+    
+    .logo-image {
+        height: 5rem;
+        width: 5rem;
+        padding: 0;
+        margin: 5px 5px 20px 5px;
+    }
 }
