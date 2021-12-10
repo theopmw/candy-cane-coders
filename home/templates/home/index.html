@@ -5,30 +5,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="snow-bg">
-    <div class="home-main">
-        <div class="auth-buttons">
-            <a href="{% url 'account_signup' %}" class="button about-button">Register</a>
-            <a href="{% url  'account_login' %}" class="button about-button">Log In</a>
-        </div>
-
-        <div class="uk-card uk-card-body about">
-            <h3 id="about-h3" class="uk-card-title uk-text-bold">Candy Cane Coders Presents: Secret Santa!</h3>
-            <p class="uk-text-bolder">Secret Santa with a twist!</p>
-            <ul class="uk-list uk-list-disc">
-                <li>
-                    Each day you will be presented with an option of 3 gifts.
-                </li>
-                <li>
-                    You can choose only one to add to your wishlist.
-                </li>
-                <li>
-                    Your wishlist will be sent to your secret santa.
-                </li>
-                <li>
-                    Take the difficulty out of choosing a secret santa gift!
-                </li>
-            </ul>
-        </div>
+<div class="home-main">
+    <div class="auth-buttons">
+        <a href="{% url 'account_signup' %}" class="button about-button">Register</a>
+        <a href="{% url  'account_login' %}" class="button about-button">Log In</a>
     </div>
+
+    <div class="uk-card uk-card-body about">
+        <h3 id="about-h3" class="uk-card-title uk-text-bold">Candy Cane Coders Presents: Secret Santa!</h3>
+        <p class="uk-text-bolder">Secret Santa with a twist!</p>
+        <ul class="uk-list uk-list-disc">
+            <li>
+                Each day you will be presented with an option of 3 gifts.
+            </li>
+            <li>
+                You can choose only one to add to your wishlist.
+            </li>
+            <li>
+                Your wishlist will be sent to your secret santa.
+            </li>
+            <li>
+                Take the difficulty out of choosing a secret santa gift!
+            </li>
+        </ul>
+    </div>
+</div>
 {% endblock %}
