@@ -1,4 +1,25 @@
+
+.home-main {
+    width: 80vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-button {
+    width: 64vw;
+    display: block;
+    margin: 1% auto;
+    min-width: 200px;
+}
+
+#about-h3 {
+    font-family: 'Architects Daughter', cursive;
+}
+
 .about {
+    min-width: 200px;
     color: #f5f5f5;
     margin-top: 5px;
     background: #5e0d0c;
@@ -16,6 +37,17 @@
     -moz-transition: 500ms linear;
     -o-transition: 500ms linear;
     transition: 500ms linear;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid #4c0300;
+    box-shadow:
+        inset 1px 1px 0px rgba(255, 255, 255, 0.25),
+        /* highlight */
+        inset 0 0 6px #a23227,
+        /* inner glow */
+        inset 0 80px 80px -40px #ac3223,
+        /* gradient */
+        1px 1px 3px rgba(0, 0, 0, 0.75);
 }
 
 .about::before {
@@ -69,4 +101,14 @@
     -moz-transition: 50ms linear;
     -o-transition: 50ms linear;
     transition: 50ms linear;
+}
+
+@media screen and (max-width: 900px) {
+    .home-main {
+        top: unset;
+        transform: unset;
+        position: static;
+        margin: 5% auto;
+        padding: 5% 0;
+    }
 }

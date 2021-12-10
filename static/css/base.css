@@ -42,11 +42,6 @@ main {
 
     position: relative;
     overflow: visible;
-    /* IE9 & 10 */
-    -webkit-transition: 500ms linear;
-    -moz-transition: 500ms linear;
-    -o-transition: 500ms linear;
-    transition: 500ms linear;
 }
 
 .button::before {
@@ -77,7 +72,11 @@ main {
         1px 1px 3px rgba(0, 0, 0, 0.75);
     /* shadow */
     text-decoration: none;
-
+    /* IE9 & 10 */
+    -webkit-transition: 500ms linear;
+    -moz-transition: 500ms linear;
+    -o-transition: 500ms linear;
+    transition: 500ms linear;
 }
 
 .button:focus {
