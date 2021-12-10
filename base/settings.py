@@ -133,7 +133,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/countdown/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
