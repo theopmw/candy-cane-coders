@@ -11,5 +11,5 @@ def add_to_wishlist(request):
     return redirect("wishlists/")
 
 
-def remove_from_wishliast(request):
+def remove_from_wishlist(request):
     return redirect("wishlists/")
