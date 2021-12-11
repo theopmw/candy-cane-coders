@@ -2,22 +2,44 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'countdown/css/countdown.css' %}">
+<link rel="stylesheet" href="{% static 'countdown/css/countdown.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Countdown Works!</h1>
-
-    <div>
-        {% for gift in gifts %}
-            <div class="gift" data-gift_id="{{ gift.id }}">
-                <p>{{ gift.name }}</p>
-                <img width="200px" height="200px" src="{% static 'images/gifts/' %}{{ gift.image }}">
-            </div>
-        {% endfor %} 
+<div class="uk-container uk-margin-top uk-animation-fade">
+    <div class="uk-text-center countdown-container days-to-go">
+        <div id="countdown">
+            {{ days_left }} Days
+        </div>
+        <div>
+            Until Secret Santa!
+        </div>
     </div>
-{% endblock %}
 
-{% block js %}
-    <script src="{% static 'countdown/js/countdown.js' %}"></script>
-{% endblock %}
+    <div class="uk-flex uk-flex-wrap uk-flex-around uk-margin-top">
+
+        {% for gift in gifts %}
+
+        {% if gift.id <= day %}
+        <div class="button uk-margin-bottom gift" data-gift_id="{{ gift.id }}">
+            <div>{{ gift.name }}</div>
+            <div><img width="100px" height="100px" src="{% static 'images/gifts/' %}{{ gift.image }}"></div>
+            <div>{{ gift.day }}</div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+    {% endblock %}
+
+    {% block js %}
+    <script src=" {% static 'countdown/js/countdown.js' %}"></script>
+    {% endblock %}
+
+    <!-- {% for gift in gifts %}
+        <div class="gift" data-gift_id="{{ gift.id }}">
+            <p>{{ gift.name }}</p>
+            <img width="100px" height="100px" src="{% static 'images/gifts/' %}{{ gift.image }}">
+        </div>
+        {% endfor %} -->
