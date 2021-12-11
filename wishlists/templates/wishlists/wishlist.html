@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block css %}
-  <link rel="stylesheet" href="{% static 'wishlists/css/wishlist.css' %}">
+<link rel="stylesheet" href="{% static 'wishlists/css/wishlist.css' %}">
 {% endblock %}
+
 {% block content %}
 <div class="paper">
     <h1>Wishlist</h1>
-  	<ul>
-      <li>Shhhh...it's a secret!</li>
+    <ul>
+        <li>Shhhh...it's a secret!</li>
     </ul>
-  	<form method="post"></form>
+    <form method="post"></form>
 </div>
 {% endblock %}
-{% block postloadjs %}
-{{ block.super }}
+
+{% block js %}
+    <script src="{% static 'wishlists/js/wishlist.js' %}"></script>
 {% endblock %}

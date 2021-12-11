@@ -7,4 +7,12 @@
 
 {% block content %}
 <h1>Countdown Works!</h1>
+<div id="example-click">
+    <h2 class="gift" data-gift_id="1">gift 1 - click me</h2> 
+</div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'countdown/js/countdown.js' %}"></script>
 {% endblock %}
