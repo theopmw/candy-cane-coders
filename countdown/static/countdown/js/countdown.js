@@ -2,7 +2,7 @@
 const gifts = document.querySelectorAll('.gift');
 gifts.forEach(gift => gift.addEventListener('click', event => {
     // get the id of the gift
-    const gift_id = event.target.dataset.gift_id;
+    const gift_id = event.currentTarget.dataset.gift_id;
     // call the post function
     userChoseGift(gift_id)
 }));
@@ -17,7 +17,7 @@ function userChoseGift(gift_id) {
         }),
         credentials: 'same-origin',
     })
-    .then(res => res.json())
+    .then(res => res.json())   
     .then(data => {
         // the returned data from the backend
         console.log(data);

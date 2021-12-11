@@ -6,11 +6,16 @@
 {% endblock %}
 
 {% block content %}
-<h1>Countdown Works!</h1>
-<div id="example-click">
-    <h2 class="gift" data-gift_id="1">gift 1 - click me</h2> 
-</div>
+    <h1>Countdown Works!</h1>
 
+    <div>
+        {% for gift in gifts %}
+            <div class="gift" data-gift_id="{{ gift.id }}">
+                <p>{{ gift.name }}</p>
+                <img width="200px" height="200px" src="{% static 'images/gifts/' %}{{ gift.image }}">
+            </div>
+        {% endfor %} 
+    </div>
 {% endblock %}
 
 {% block js %}

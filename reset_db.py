@@ -43,6 +43,13 @@ class ResetMigrations:
     def migrate(self):
         os.system('python3 manage.py migrate')
 
+    def install_fixtures(self):
+        os.system('python3 manage.py loaddata gifts.json')
+        os.system('python3 manage.py loaddata countdown.json')
+
+    def createsuperuser(self):
+        os.system('python3 manage.py createsuperuser')
+
 
 if __name__ == '__main__':
     rd = ResetMigrations()
@@ -50,3 +57,5 @@ if __name__ == '__main__':
     rd.delete_migrations_pycache()
     rd.make_migrations()
     rd.migrate()
+    rd.install_fixtures()
+    rd.createsuperuser()
