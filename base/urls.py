@@ -26,6 +26,7 @@ urlpatterns = [
     path('countdown/', include('countdown.urls')),
     path('gifts/', include('gifts.urls')),
     path('profiles/', include('profiles.urls')),
+    path('wishlists/', include('wishlists.urls')),
     path('', include('home.urls')),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')),),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

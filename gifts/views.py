@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def gift_send(request):
     context = {}
-    return render(request, 'gifts/gift_send.html', context)
+    return render(request, 'gifts/gift_sent.html', context)
 
 def gift_receive(request):
     context = {}

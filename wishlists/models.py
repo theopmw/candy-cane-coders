@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class Wishlist(models.Model):
-    item = models.ManyToManyField(Gift)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    gifts = models.ManyToManyField(Gift, blank=True, related_name='wishlist_gifts')
 
     def __str__(self):
-        return self.item
+        return f'{self.user.username}s wishlist gifts'
