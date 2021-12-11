@@ -25,7 +25,7 @@
         <!-- Header -->
         {% block header %}
         <header>
-            <!-- Nav bar -->
+            {% if request.path != '/' and request.path != '/accounts/signup/' and request.path != '/accounts/login/' and request.path != '/accounts/logout/' %}
             <nav>
                 <div class="topnav" id="myTopnav">
                     <a href="#">Home</a>
@@ -37,6 +37,7 @@
                     </a>
                 </div>
             </nav>
+            {% endif %}
 
             <div class=" logo-container uk-position-top-center uk-flex uk-flex-middle">
                 <img class="logo-image" src="{% static 'images/present.png' %}" alt="Logo gift">
@@ -48,9 +49,8 @@
         {% endblock %}
         <!-- Main Content -->
         <main>
-            {% block content %}
-
-            {% endblock %}
+            <!-- Nav bar -->
+            {% block content %}{% endblock %}
         </main>
 
         {% block footer %}
