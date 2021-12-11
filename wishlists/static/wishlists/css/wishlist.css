@@ -1,0 +1,111 @@
+#notepad {
+    width: 60vw;
+    min-height: 658px;
+    background-color: #f5f5f5;
+    margin: 100px auto  20px;
+    border-radius: 10px;
+    box-shadow: 5px 1px 10px rgba(0,0,0,0.5);
+}
+
+.list {
+    color: #555;
+    font-size: 18px;
+    padding: 0 !important;
+    font-family: courier, monospace;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    padding-top: 10px !important;
+}
+
+.list .uk-h1 {
+    margin-bottom: 5px;
+    font-family: 'Architects Daughter';
+}
+
+.list-number {
+    position: relative;
+    top: -7px;
+    padding-left: 5px;
+}
+
+.list li {
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+    text-indent: 25px;
+    height: auto;
+    padding: 10px;
+    text-transform: capitalize;
+    font-family: 'Fuzzy Bubbles';
+}
+
+
+.list li:hover {
+    background-color: #f0f0f0;
+    -webkit-transition: all 0.2s;
+    -moz-transition:    all 0.2s;
+    -ms-transition:     all 0.2s;
+    -o-transition:      all 0.2s;
+}
+
+.list-name {
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.lines {
+    border-left: 1px solid #ffaa9f;
+    border-right: 1px solid #ffaa9f;
+    width: 2px;
+    float: left;
+    min-height: 658px;
+    margin-left: 40px;
+}
+
+.delete-item {
+    cursor: pointer;
+    color: red;
+    float: right;
+    padding-right: 10px;
+    position: relative;
+    right: 0px;
+    top: -5px;
+}
+
+.delete-item:hover {
+    color: black;
+    transition: 0.2s;
+}
+
+@media screen and (max-width: 1100px) {
+    #notepad {
+        width: 90vw;
+        min-height: 570px;
+    }
+
+    .list {
+        font-size: 14px;
+    }
+
+    .list-name {
+        width: 70%;
+    } 
+        
+    .lines {
+        margin-left: 10px;
+        min-height: 570px;
+    }
+
+    .list li {
+        text-indent: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .delete-item span {
+        width: 60%;
+    }
+}
+

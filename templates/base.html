@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <!-- UIkit CSS -->
@@ -28,10 +28,12 @@
             {% if request.path != '/' and request.path != '/accounts/signup/' and request.path != '/accounts/login/' and request.path != '/accounts/logout/' %}
             <nav>
                 <div class="topnav" id="myTopnav">
-                    <a href="#">Home</a>
-                    <a href="#">Wishlist</a>
-                    <a href="#">Secret Santa</a>
-                    <a href="#" class="right">Logout</a>
+                    <a href="{% url 'countdown' %}">Countdown Calendar</a>
+                    <a href="{% url 'wishlists' %}">My Wishlist</a>
+                    <a href="{% url 'gift_send' %}">Secret Santa: Sending</a>
+                    <a href="{% url 'gift_receive' %}">Secret Santa: Receving</a>
+                    <a href="{% url 'profiles' request.user.username %}">Profile</a>
+                    <a href="{% url 'account_logout' %}" class="right">Logout</a>
                     <a href="javascript:void(0);" class="icon" onclick="navBarMenu()">
                         <span uk-icon="menu"></span>
                     </a>

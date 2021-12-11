@@ -6,12 +6,27 @@
 {% endblock %}
 
 {% block content %}
-<div class="paper">
-    <h1>Wishlist</h1>
-    <ul>
-        <li>Shhhh...it's a secret!</li>
+<div id="notepad">
+    <div class="lines"></div>
+    <ul class="list">
+        <li class="uk-h1">
+            My Wishlist
+        </li>
+        {% for gift in wishlist.gifts.all %}
+            <li class="item" data-gift_id="{{ gift.id }}">
+                <span class="list-number">{{ forloop.counter }}. </span> 
+                <span class="list-name">{{ gift.name }}</span>
+                <span class="delete-item" data-gift_id="{{ gift.id }}">
+                    <span uk-icon="trash"></span>
+                </span>
+            </li>
+        {% empty %}
+            <li class="uk-h2">
+                No Gifts Added Yet
+            </li>
+        {% endfor %}
     </ul>
-    <form method="post"></form>
+    
 </div>
 {% endblock %}
 

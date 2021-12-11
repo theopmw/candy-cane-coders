@@ -1,22 +1,24 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
 
+from wishlists.models import Wishlist
+from gifts.models import Gift
+
 
 def wishlists(request):
-    context = {}
-    template = "wishlists/wishlist.html"
-    return render(request, template, context)
+    wishlist = Wishlist.objects.filter(user=request.user).first()
+    context = {'wishlist': wishlist}
+    return render(request, "wishlists/wishlist.html", context)
 
 @require_POST
 def add_to_wishlist(request, gift_id):
-    # get the gift based on its id and add to the users wishlist
-    if request.method == 'POST':
-        print("GIFT_ID = ", int(gift_id))
-        return JsonResponse({'gift_id': gift_id})
+    return JsonResponse({'gift_id': gift_id})
 
-    return redirect(reverse("wishlists"))
 
 @require_POST
 def remove_from_wishlist(request, gift_id):
-    return redirect(reverse("wishlists"))
+    gift = get_object_or_404(Gift, pk=gift_id)
+    wishlist = Wishlist.objects.filter(user=request.user).first()
+    wishlist.gifts.remove(gift)
+    return JsonResponse({'gift_id': gift_id})
