@@ -25,7 +25,20 @@
         <!-- Header -->
         {% block header %}
         <header>
-            <div class="logo-container uk-position-top-center uk-flex uk-flex-middle">
+            <!-- Nav bar -->
+            <nav>
+                <div class="topnav" id="myTopnav">
+                    <a href="#">Home</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">Secret Santa</a>
+                    <a href="#" class="right">Logout</a>
+                    <a href="javascript:void(0);" class="icon" onclick="navBarMenu()">
+                        <span uk-icon="menu"></span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class=" logo-container uk-position-top-center uk-flex uk-flex-middle">
                 <img class="logo-image" src="{% static 'images/present.png' %}" alt="Logo gift">
                 <h1 class="logo-text font-candyman">Secret Santa</h1>
                 <img class="logo-image" src="{% static 'images/present.png' %}" alt="Logo gift">
