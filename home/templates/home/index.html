@@ -5,11 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="home-main">
-    <div class="auth-buttons">
-        <a href="{% url 'account_signup' %}" class="button about-button">Register</a>
-        <a href="{% url  'account_login' %}" class="button about-button">Log In</a>
-    </div>
+
+<div class="snow-bg">
+    <div class="home-main">
+        <div class="auth-buttons">
+            <a href="{% url 'account_signup' %}" class="button about-button uk-text-center">Register</a>
+            <a href="{% url  'account_login' %}" class="button about-button uk-text-center">Log In</a>
+        </div>
+
 
     <div class="uk-card uk-card-body about">
         <h3 id="about-h3" class="uk-card-title uk-text-bold">Candy Cane Coders Presents: Secret Santa!</h3>

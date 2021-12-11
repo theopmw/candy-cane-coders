@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="static/css/base.css">
+{% endblock %}
+{% block content %}
+<div class="paper">
+    <h1>Wishlist</h1>
+  	<ul>
+      <li>Shhhh...it's a secret!</li>
+    </ul>
+  	<form method="post" id="newItemForm">
+  	  	<input type="text" id="newItemInput" placeholder="Add a new item..." />
+  	</form>
+</div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script>
+var newItemInput = $('#newItemInput');
+
+$('#newItemForm').submit(function(e){
+  e.preventDefault();
+  if(newItemInput.val() != ''){
+    $('<li />').text(newItemInput.val()).appendTo('ul');
+    newItemInput.val('');
+  }
+});
+</script>
+{% endblock %}
