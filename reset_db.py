@@ -44,11 +44,16 @@ class ResetMigrations:
         os.system('python3 manage.py migrate')
 
     def install_fixtures(self):
-        os.system('python3 manage.py loaddata gifts.json')
-        os.system('python3 manage.py loaddata countdown.json')
+        # os.system('python3 manage.py loaddata gifts.json')
+        # os.system('python3 manage.py loaddata countdown.json')
+        # os.system('python3 manage.py loaddata auth.user.json')
+        # os.system('python3 manage.py loaddata profiles.json')
+        # os.system('python3 manage.py loaddata wishlists.json')
+        os.system('python3 manage.py loaddata db.json')
 
     def createsuperuser(self):
-        os.system('python3 manage.py createsuperuser')
+        # os.system('python3 manage.py createsuperuser')
+        pass
 
 
 if __name__ == '__main__':

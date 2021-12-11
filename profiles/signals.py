@@ -9,6 +9,5 @@ from wishlists.models import Wishlist
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
-        wishlist = Wishlist.objects.create(user=instance)
-        Profile.objects.create(user=instance, wishlist_owner=wishlist)
+        Profile.objects.create(user=instance)
     instance.profile.save()
