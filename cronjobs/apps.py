@@ -1,9 +1,9 @@
 from django.apps import AppConfig
 
 
-class ProfilesConfig(AppConfig):
+class CronjobsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'profiles'
+    name = 'cronjobs'
 
     def ready(self):
-        import profiles.signals
+        import cronjobs.scheduled
