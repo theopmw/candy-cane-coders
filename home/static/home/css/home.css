@@ -83,7 +83,10 @@
 
 .about:focus {
     outline: none;
-    /*FF*/
+}
+
+.home-about {
+    font-family: 'Fuzzy Bubbles';
 }
 
 .about:active {

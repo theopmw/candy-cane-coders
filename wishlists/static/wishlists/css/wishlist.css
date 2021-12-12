@@ -30,7 +30,7 @@
 
 .list li {
     list-style: none;
-    border-bottom: 1px dotted #ccc;
+    border-bottom: 2px dotted #ccc;
     text-indent: 25px;
     height: auto;
     padding: 10px;

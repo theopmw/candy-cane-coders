@@ -30,8 +30,8 @@
                 <div class="topnav" id="myTopnav">
                     <a href="{% url 'countdown' %}">Countdown Calendar</a>
                     <a href="{% url 'wishlists' %}">My Wishlist</a>
-                    <a href="{% url 'gift_send' %}">Secret Santa: Sending</a>
-                    <a href="{% url 'gift_receive' %}">Secret Santa: Receving</a>
+                    <a href="{% url 'gift_given' %}">Secret Santa: Sending</a>
+                    <a href="{% url 'gift_received' %}">Secret Santa: Receving</a>
                     <a href="{% url 'profiles' request.user.username %}">Profile</a>
                     <a href="{% url 'account_logout' %}" class="right">Logout</a>
                     <a href="javascript:void(0);" class="icon" onclick="navBarMenu()">

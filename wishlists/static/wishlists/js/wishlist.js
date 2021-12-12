@@ -17,7 +17,7 @@ const deleteWishlistItem = gift_id => {
         .then(data => {
             reorderWishlist(data.gift_id);
             UIkit.notification({
-                message: `Item has been removed from your wishlist!`,
+                message: `Gift has been removed from your wishlist!`,
                 status: 'primary',
                 pos: 'top-right',
                 timeout: 5000

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from . import views
 
 urlpatterns = [
-    path('send/', login_required(views.gift_send), name='gift_send'),
-    path('receive/', login_required(views.gift_receive), name='gift_receive'),
+    path('given/', login_required(views.gift_given), name='gift_given'),
+    path('received/', login_required(views.gift_received), name='gift_received'),
+    path('send/<int:gift_id>/<int:user_id>/', login_required(views.gift_send), name='gift_send'),
 ]

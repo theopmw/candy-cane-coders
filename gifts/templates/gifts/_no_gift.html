@@ -1,0 +1,11 @@
+{% load static %}
+<div id="display-gift" class="uk-child-width-1-1@m uk-margin-bottom" uk-grid>
+    <div class="uk-card uk-card-default uk-text-center button">
+        <div class="uk-card-body">
+            <h2 class="uk-text-bold">Only <span class="uk-text-success">{{ days_left }}</span> day's to go!</h2>
+        </div>
+        <div class="uk-card-media-bottom">
+            <img src="{% static 'images/gift.png' %}" alt="">
+        </div>
+    </div>
+</div>

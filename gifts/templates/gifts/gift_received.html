@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'gifts/css/gifts.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if gift %}
+        <h1 class="uk-text-center gifts-heading">
+            <div class="sub">
+                Hey <span class="uk-text-danger uk-text-bold">{{ request.user.username }}</span>,
+                Lucky you, <span class="uk-text-danger uk-text-bold">{{ gift_sender }}</span> has just sent you a <span class="uk-text-success uk-text-bold">Gift</span>!
+            </div>
+        </h1>
+        {% include 'gifts/_display_gift.html' %}
+    {% else %}
+        <h1 class="uk-text-center gifts-heading">
+            <div class="sub">
+                You have <span class="uk-text-danger uk-text-bold">not</span> received your <span class="uk-text-success uk-text-bold">gift</span> yet!
+            </div>
+        </h1>
+        {% include 'gifts/_no_gift.html' %}
+    {% endif %}
+{% endblock %}

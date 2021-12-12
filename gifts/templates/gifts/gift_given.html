@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'gifts/css/gifts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="uk-container">
+    {% if not sent and wishlist %}
+        <h1 class="uk-text-center gifts-heading">
+            <span class="sub">
+                Hey <span class="uk-text-danger uk-text-bold">{{ request.user.username }}</span>,
+                The time has come to give <span class="uk-text-danger uk-text-bold">{{ wishlist.user.username }}</span> a <span class="uk-text-success uk-text-bold">Gift</span>!
+            </span>
+        </h1>
+        <div class="paper">
+            <ol>
+                {% for gift in wishlist.gifts.all %}
+                    <li class="gift" data-gift_id="{{ gift.id }}" data-user_id="{{ wishlist.user.id }}" data-user_name="{{ wishlist.user.username }}">
+                        {{ gift.name }}
+                        <span class="gift-choose uk-text-success uk-float-right">Choose Gift</span>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% elif sent and wishlist %}
+        <h1 class="uk-text-center gifts-heading">
+            <span class="sub">
+                You sent <span class="uk-text-danger uk-text-bold">{{ wishlist.user.username }}</span> a <span class="uk-text-success uk-text-bold">Gift</span>!
+            </span>
+        </h1>
+        {% include 'gifts/_display_gift.html' %}
+    {% else %}
+        <h1 class="uk-text-center gifts-heading">
+            <span class="sub">
+                Its <span class="uk-text-danger uk-text-bold">not</span> time to send a <span class="uk-text-success uk-text-bold">gift</span> yet!
+            </span>
+        </h1>
+        {% include 'gifts/_no_gift.html' %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static '/gifts/js/gift_send.js' %}"></script>
+{% endblock %}

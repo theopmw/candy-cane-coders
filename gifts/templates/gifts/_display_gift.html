@@ -1,0 +1,11 @@
+{% load static %}
+<div id="display-gift" class="uk-child-width-1-1@m uk-margin-bottom" uk-grid>
+    <div class="uk-card uk-card-default uk-text-center button">
+        <div class="uk-card-body">
+            <h2 class="uk-text-bold">{{ gift.name }}</h2>
+        </div>
+        <div class="uk-card-media-bottom">
+            <img src="{% static 'images/gifts/' %}{{ gift.image }}" alt="">
+        </div>
+    </div>
+</div>
