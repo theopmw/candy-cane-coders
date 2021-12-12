@@ -2,7 +2,7 @@ const showAdmin = ['/', '/accounts/login/', '/accounts/logout/', '/accounts/sign
 
 if (!showAdmin) {
     document.getElementById('admin-add-day').addEventListener('click', () => addDay());
-    document.getElementById('admin-secret-santa').addEventListener('click', () => secretSantaDraw());
+    document.getElementById('admin-secret-santa').addEventListener('click', () => setDay11());
     document.getElementById('admin-reset').addEventListener('click', () => resetDraw());
 }
 
@@ -25,7 +25,6 @@ function addDay() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if (data.status == 401) {
                 UIkit.notification({
                     message: `You are not Authorised`,
@@ -55,7 +54,7 @@ function addDay() {
         .catch(err => console.log(err));
 };
 
-function secretSantaDraw() {
+function setDay11() {
     fetch(`/draw/set_day_11/`, {
             method: 'POST',
             headers: new Headers({
@@ -98,13 +97,13 @@ function resetDraw() {
         })
         .then(res => res.json())
         .then(data => {
-            UIkit.notification({
-                message: `Day set to 1, Secret Santa draw reset`,
-                status: 'primary',
-                pos: 'top-right',
-                timeout: 5000
-            });
-
+            console.log(data)
+            // UIkit.notification({
+            //     message: `Day set to 1, Secret Santa draw reset`,
+            //     status: 'primary',
+            //     pos: 'top-right',
+            //     timeout: 5000
+            // });
         })
         .catch(err => console.log(err));
 };

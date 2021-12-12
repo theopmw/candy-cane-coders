@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 from random import randint
+from datetime import datetime, timedelta
 
 from profiles.models import Profile
 from wishlists.models import Wishlist
 from countdown.models import Countdown
+from gifts.models import Gift
 
+@require_POST
 def increase_day(request):
     if request.user.is_superuser:
         countdown = Countdown.objects.first()
@@ -19,6 +23,7 @@ def increase_day(request):
     else:
         return JsonResponse({'status': 401})
 
+@require_POST
 def set_day_11(request):
     if request.user.is_superuser:
         countdown = Countdown.objects.first()
@@ -28,6 +33,31 @@ def set_day_11(request):
         return JsonResponse({'status': 200})
     else:
         return JsonResponse({'status': 401})
+
+
+@require_POST
+def reset_draw(request):
+    if request.user.is_superuser:
+        # reset countdown
+        countdown = Countdown.objects.first()
+        profiles = Profile.objects.all()
+
+        countdown.day = 1
+        countdown.done = False
+        countdown.start_date = datetime.now()
+        countdown.current_date = datetime.now()
+        countdown.save()
+
+        for profile in profiles:
+            profile.wishlist_sender = None
+            profile.gift_given = None
+            profile.gift_received = None
+            profile.save()
+
+        return JsonResponse({'status': 200})
+    else:
+        return JsonResponse({'status': 401})
+
 
 def create_draw(request):
     countdown = Countdown.objects.first()
@@ -54,6 +84,13 @@ def create_draw(request):
                 del profiles[rand_profile_index]
                 odd_or_even = 0
                 continue
+
+        # if the wishlist is empty - add all items
+        if rand_wishlist.gifts.all().count() == 0:
+            for gift in Gift.objects.all():
+                rand_wishlist.gifts.add(gift)
+                rand_wishlist.gifts.save()
+                rand_wishlist.save()
 
         # assign wishlist to profile
         rand_profile.wishlist_sender = rand_wishlist
