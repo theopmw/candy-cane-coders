@@ -149,7 +149,10 @@ h6 {
     padding: 0;
     margin: 5px;
 }
-
+.logo-text:hover, a:hover{
+    text-decoration: none ;
+    color:green;
+}
 .logo-image {
     height: 2rem;
     width: 2rem;
