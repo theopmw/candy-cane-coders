@@ -8,10 +8,14 @@ def countdown(request):
     gifts = Gift.objects.all()
     advent = Countdown.objects.first()
     wishlist = Wishlist.objects.filter(user=request.user).first()
+
+    if not wishlist:
+        wishlist = Wishlist.objects.create(user=request.user)
+        wishlist.save()
+        
     if wishlist.gifts:
         for gift in wishlist.gifts.all():
             chosen_gifts.append(gift.day)
-            print("Hello World")
 
 
     context = {
