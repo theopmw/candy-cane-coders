@@ -27,9 +27,19 @@ def increase_day(request):
 def set_day_11(request):
     if request.user.is_superuser:
         countdown = Countdown.objects.first()
+        profiles = Profile.objects.all()
+
+        for profile in profiles:
+            profile.wishlist_sender = None
+            profile.gift_given = None
+            profile.gift_received = None
+            profile.save()
+
         day = countdown.day
         countdown.day = 11
+        countdown.done = False
         countdown.save()
+
         return JsonResponse({'status': 200})
     else:
         return JsonResponse({'status': 401})
@@ -38,7 +48,6 @@ def set_day_11(request):
 @require_POST
 def reset_draw(request):
     if request.user.is_superuser:
-        # reset countdown
         countdown = Countdown.objects.first()
         profiles = Profile.objects.all()
 
