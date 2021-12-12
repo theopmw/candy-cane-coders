@@ -28,12 +28,13 @@
             {% if request.path != '/' and request.path != '/accounts/signup/' and request.path != '/accounts/login/' and request.path != '/accounts/logout/' %}
             <nav>
                 <div class="topnav" id="myTopnav">
-                    <a href="{% url 'countdown' %}">Countdown Calendar</a>
-                    <a href="{% url 'wishlists' %}">My Wishlist</a>
-                    <a href="{% url 'gift_given' %}">Secret Santa: Sending</a>
-                    <a href="{% url 'gift_received' %}">Secret Santa: Receving</a>
-                    <a href="{% url 'profiles' request.user.username %}">Profile</a>
-                    <a href="{% url 'account_logout' %}" class="right">Logout</a>
+                    <a href="{% url 'countdown' %}"><span uk-icon="calendar"></span> Countdown Calendar</a>
+                    <a href="{% url 'wishlists' %}"><span uk-icon="list"></span> My Wishlist</a>
+                    <a href="{% url 'gift_send' %}"><span uk-icon="push"> </span> Secret Santa: Sending</a>
+                    <a href="{% url 'gift_receive' %}"><span uk-icon="pull"> </span> Secret Santa: Receving</a>
+                    <a href="{% url 'profiles' request.user.username %}"><span uk-icon="user"> </span>Profile</a>
+                    <a href="{% url 'account_logout' %}" class="right"><span uk-icon="sign-out"> </span>Logout</a>
+
                     <a href="javascript:void(0);" class="icon" onclick="navBarMenu()">
                         <span uk-icon="menu"></span>
                     </a>

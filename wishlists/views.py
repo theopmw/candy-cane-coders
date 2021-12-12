@@ -11,8 +11,12 @@ def wishlists(request):
     context = {'wishlist': wishlist}
     return render(request, "wishlists/wishlist.html", context)
 
+
 @require_POST
 def add_to_wishlist(request, gift_id):
+    wishlist = Wishlist.objects.filter(user=request.user).first()
+    gift = Gift.objects.get(pk=int(gift_id))
+    wishlist.gifts.add(gift)
     return JsonResponse({'gift_id': gift_id})
 
 
