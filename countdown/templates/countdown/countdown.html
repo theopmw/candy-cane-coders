@@ -8,7 +8,7 @@
 {% block content %}
 <div class="uk-container uk-margin-top uk-animation-fade font-candyman">
     <div class="uk-text-center countdown-container days-to-go">
-        {% if days_left > 0 %}
+        {% if days_left >= 0 %}
         <div id="countdown">
             {% if days_left == 1 %}
             <span class="uk-text-success">{{ days_left }}</span> Day

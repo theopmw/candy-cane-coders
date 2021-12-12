@@ -4,10 +4,12 @@ from django.http import JsonResponse
 
 from wishlists.models import Wishlist
 from gifts.models import Gift
-
+from countdown.models import Countdown
 
 def wishlists(request):
+    countdown = Countdown.objects.first()
     wishlist = Wishlist.objects.filter(user=request.user).first()
+    wishlist = [gift for gift in wishlist.gifts.all() if gift.day <= countdown.day]
     context = {'wishlist': wishlist}
     return render(request, "wishlists/wishlist.html", context)
 

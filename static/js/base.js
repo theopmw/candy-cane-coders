@@ -1,4 +1,11 @@
-//nav bar
+const showAdmin = ['/', '/accounts/login/', '/accounts/logout/', '/accounts/signup/'].some(path => path == window.location.pathname);
+
+if (!showAdmin) {
+    document.getElementById('admin-add-day').addEventListener('click', () => addDay());
+    document.getElementById('admin-secret-santa').addEventListener('click', () => secretSantaDraw());
+    document.getElementById('admin-reset').addEventListener('click', () => resetDraw());
+}
+
 function navBarMenu() {
     let x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -7,23 +14,6 @@ function navBarMenu() {
         x.className = "topnav";
     }
 }
-
-// Admin
-
-const dayPlusOne = document.getElementByID('admin-add-day');
-dayPlusOne.addEventListener('click', event => {
-    addDay();
-});
-
-const initiateSecretSanta = document.getElementByID('admin-secret-santa');
-initiateSecretSanta.addEventListener('click', event => {
-    secretSantaDraw();
-});
-
-const resetTimer = document.getElementByID('admin-reset');
-resetTimer.addEventListener('click', event => {
-    resetDay();
-});
 
 function addDay() {
     fetch(`/draw/increase_day/`, {
@@ -35,19 +25,38 @@ function addDay() {
         })
         .then(res => res.json())
         .then(data => {
-            UIkit.notification({
-                message: `Day +1 actioned`,
-                status: 'primary',
-                pos: 'top-right',
-                timeout: 5000
-            });
-
+            console.log(data)
+            if (data.status == 401) {
+                UIkit.notification({
+                    message: `You are not Authorised`,
+                    status: 'primary',
+                    pos: 'top-right',
+                    timeout: 5000
+                });
+            }
+            else if (data.status == 200) {
+                UIkit.notification({
+                    message: `Day +1 actioned`,
+                    status: 'primary',
+                    pos: 'top-right',
+                    timeout: 5000
+                });
+                setTimeout(() => window.location.reload(), 2500);
+            }
+            else if (data.status == 406) {
+                UIkit.notification({
+                    message: data.message,
+                    status: 'primary',
+                    pos: 'top-right',
+                    timeout: 5000
+                });
+            };
         })
         .catch(err => console.log(err));
 };
 
 function secretSantaDraw() {
-    fetch(`/draw/increase_day/`, {
+    fetch(`/draw/set_day_11/`, {
             method: 'POST',
             headers: new Headers({
                 'X-CSRFToken': csrftoken,
@@ -56,19 +65,31 @@ function secretSantaDraw() {
         })
         .then(res => res.json())
         .then(data => {
-            UIkit.notification({
-                message: `Day set to 11 and Secret Santa drawn`,
-                status: 'primary',
-                pos: 'top-right',
-                timeout: 5000
-            });
-
+            if (data.status === 200) {
+                UIkit.notification({
+                    message: `Day set to 11 and Secret Santa drawn`,
+                    status: 'primary',
+                    pos: 'top-right',
+                    timeout: 2500
+                });
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2500);
+            }
+            else if (data.status === 401) {
+                UIkit.notification({
+                    message: `You are not Authorised`,
+                    status: 'primary',
+                    pos: 'top-right',
+                    timeout: 5000
+                });
+            };
         })
         .catch(err => console.log(err));
 };
 
-function resetDay() {
-    fetch(`/draw/increase_day/`, {
+function resetDraw() {
+    fetch(`/draw/reset_draw/`, {
             method: 'POST',
             headers: new Headers({
                 'X-CSRFToken': csrftoken,

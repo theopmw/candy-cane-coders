@@ -11,12 +11,16 @@ def gift_given(request):
         'gift': None,
         'wishlist': None,
         'sent': False,
+        'days_left': 0
     }
 
     wishlist = Profile.objects.get(user=request.user)
     countdown = Countdown.objects.all().first()
     context['days_left'] = 10 - countdown.day 
     context['wishlist'] = wishlist.wishlist_sender
+
+    if context['days_left'] <= 0: 
+        context['days_left'] = 0
     
     if wishlist.gift_given:
         context['gift'] = wishlist.gift_given
@@ -27,12 +31,16 @@ def gift_given(request):
 
 def gift_received(request):
     context = {
-        'gift': None
+        'gift': None,
+        'days_left': 0
     }
 
     wishlist = Profile.objects.get(user=request.user)
     countdown = Countdown.objects.all().first()
     context['days_left'] = 10 - countdown.day
+   
+    if context['days_left'] <= 0: 
+        context['days_left'] = 0
 
     if wishlist.wishlist_sender:
         context['gift_sender'] = wishlist.wishlist_sender.user.username

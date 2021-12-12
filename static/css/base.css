@@ -223,6 +223,27 @@ button:hover>a {
     line-height: 1.6rem;
 }
 
+.uk-dropdown {
+    background: #892118;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.uk-dropdown .admin {
+    background: #892118;
+    color: white;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.uk-dropdown .admin:hover {
+    background: #b42c20;
+    transition: .2s;;
+}
+
 
 /* Nav Bar */
 .topnav {

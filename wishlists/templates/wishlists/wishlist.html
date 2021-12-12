@@ -12,7 +12,7 @@
         <li class="uk-h1">
             My Wishlist
         </li>
-        {% for gift in wishlist.gifts.all %}
+        {% for gift in wishlist %}
             <li class="item" data-gift_id="{{ gift.id }}">
                 <span class="list-number">{{ forloop.counter }}. </span> 
                 <span class="list-name">{{ gift.name }}</span>

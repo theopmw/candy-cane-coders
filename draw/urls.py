@@ -2,4 +2,7 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from . import views
 
-urlpatterns = []
+urlpatterns = [
+    path('increase_day/', login_required(views.increase_day), name="increase_day"),
+    path('set_day_11/', login_required(views.set_day_11), name="set_day_11"),
+]
