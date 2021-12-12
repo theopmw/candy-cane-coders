@@ -17,7 +17,6 @@ def countdown(request):
         for gift in wishlist.gifts.all():
             chosen_gifts.append(gift.day)
 
-
     context = {
         'gifts': gifts,
         'day': advent.day,

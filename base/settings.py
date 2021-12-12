@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cronjobs',
     'countdown',
+    'draw',
     'gifts',
     'home',
     'profiles',
@@ -62,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Custom middleware - on each request checks if we need to increase day or create secret santa draw
+    'draw.middleware.DrawMiddleware',
 ]
 
 ROOT_URLCONF = 'base.urls'

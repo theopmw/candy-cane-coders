@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="uk-container">
     {% if gift %}
         <h1 class="uk-text-center gifts-heading">
             <div class="sub">
@@ -22,4 +23,5 @@
         </h1>
         {% include 'gifts/_no_gift.html' %}
     {% endif %}
+</div>
 {% endblock %}
