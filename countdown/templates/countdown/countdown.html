@@ -11,16 +11,19 @@
         {% if days_left > 0 %}
         <div id="countdown">
             {% if days_left == 1 %}
-                <span class="uk-text-success">{{ days_left }}</span> Day
+            <span class="uk-text-success">{{ days_left }}</span> Day
             {% else %}
-                <span class="uk-text-success">{{ days_left }}</span> Days
+            <span class="uk-text-success">{{ days_left }}</span> Days
             {% endif %}
             Until <span class="uk-text-danger">Secret Santa!</span>
         </div>
         {% else %}
         <div>
-            <p>Secret Santa has been drawn!</p>
-            <p>What gift did you get?</p>
+            <p>
+                <span class="uk-text-danger">Secret Santa</span> has been drawn!
+            </p>
+            <p>
+                What <span class="uk-text-success">gift</span> did you get? </p>
         </div>
         {% endif %}
     </div>
@@ -29,16 +32,29 @@
 
         {% for gift in gifts %}
 
-        {% if gift.id <= day %}
+        {% if day > 10 %}
+        <div class="button-expired uk-margin-bottom gift-box">
+            <p class=" day-title">Day {{ gift.day }}</p>
+            <div class="gift-name">{{ gift.name }}</div>
+            <div><img width="100px" height="100px" src="{% static 'images/gifts/' %}{{ gift.image }}"></div>
+            <p id="gift{{ gift.id }}">
+                {% if gift.day in chosen_gifts %}
+                <span class="uk-text-success">You added this to your Wishlist</span>
+                {% else %}
+                <span class="uk-text-danger">Not in Wishlish</span>
+                {% endif %}
+            </p>
+        </div>
+        {% elif gift.id <= day %}
         <div class="button uk-margin-bottom gift-box {% if gift.day not in chosen_gifts %}gift{% endif %}" data-gift_id="{{ gift.id }}">
             <p class="day-title">Day {{ gift.day }}</p>
             <div class="gift-name">{{ gift.name }}</div>
             <div><img width="100px" height="100px" src="{% static 'images/gifts/' %}{{ gift.image }}"></div>
             <p id="gift{{ gift.id }}">
                 {% if gift.day in chosen_gifts %}
-                    <span class="uk-text-danger">Already in Wishlist</span>
+                <span class="uk-text-danger">Already in Wishlist</span>
                 {% else %}
-                    <span class="uk-text-success">Add to Wishlish</span>
+                <span class="uk-text-success">Add to Wishlish</span>
                 {% endif %}
             </p>
         </div>
@@ -46,8 +62,8 @@
         {% else %}
         <div class="button uk-margin-bottom gift-box">
             <p class=" day-title">Day {{ gift.day }}</p>
-                <div class="gift-name">Mystery Gift..</div>
-                <div><img width=" 100px" height="100px" src="{% static 'images/gift.png' %}">
+            <div class="gift-name">Mystery Gift..</div>
+            <div><img width=" 100px" height="100px" src="{% static 'images/gift.png' %}">
             </div>
             <p>Coming Soon!</p>
         </div>
