@@ -11,13 +11,11 @@
         {% if days_left > 0 %}
         <div id="countdown">
             {% if days_left == 1 %}
-            {{ days_left }} Day
+                <span class="uk-text-success">{{ days_left }}</span> Day
             {% else %}
-            {{ days_left }} Days
+                <span class="uk-text-success">{{ days_left }}</span> Days
             {% endif %}
-        </div>
-        <div>
-            Until Secret Santa!
+            Until <span class="uk-text-danger">Secret Santa!</span>
         </div>
         {% else %}
         <div>
@@ -38,9 +36,9 @@
             <div><img width="100px" height="100px" src="{% static 'images/gifts/' %}{{ gift.image }}"></div>
             <p id="gift{{ gift.id }}">
                 {% if gift.day in chosen_gifts %}
-                Already in Wishlist
+                    <span class="uk-text-danger">Already in Wishlist</span>
                 {% else %}
-                Add to Wishlish
+                    <span class="uk-text-success">Add to Wishlish</span>
                 {% endif %}
             </p>
         </div>
@@ -48,8 +46,8 @@
         {% else %}
         <div class="button uk-margin-bottom gift-box">
             <p class=" day-title">Day {{ gift.day }}</p>
-            <div></div>
-            <div><img width=" 100px" height="100px" src="{% static 'images/gift.png' %}">
+                <div class="gift-name">Mystery Gift..</div>
+                <div><img width=" 100px" height="100px" src="{% static 'images/gift.png' %}">
             </div>
             <p>Coming Soon!</p>
         </div>

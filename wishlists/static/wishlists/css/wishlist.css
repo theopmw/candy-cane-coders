@@ -38,13 +38,8 @@
     font-family: 'Fuzzy Bubbles';
 }
 
-
-.list li:hover {
-    background-color: #f0f0f0;
-    -webkit-transition: all 0.2s;
-    -moz-transition:    all 0.2s;
-    -ms-transition:     all 0.2s;
-    -o-transition:      all 0.2s;
+.list .uk-h2 {
+    margin: 10px 0 20px;
 }
 
 .list-name {

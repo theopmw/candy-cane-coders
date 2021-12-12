@@ -20,7 +20,7 @@ const deleteWishlistItem = gift_id => {
                 message: `Gift has been removed from your wishlist!`,
                 status: 'primary',
                 pos: 'top-right',
-                timeout: 5000
+                timeout: 500000
             });
         })
         .catch(err => console.log(err));
@@ -36,5 +36,10 @@ const reorderWishlist = gift_id => {
             item.firstElementChild.innerText = `${count}. `;
             count++;
         };
+
+        const itemsLeft = document.querySelectorAll('.item');
+        if (itemsLeft.length === 0) {
+            document.querySelector('.list').innerHTML += '<li class="uk-h2">No Gifts Added Yet</li>'
+        }  
     });
 };

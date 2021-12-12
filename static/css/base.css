@@ -217,9 +217,13 @@ button:hover>a {
     margin: 0;
 }
 
+.uk-notification-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
 
 /* Nav Bar */
-
 .topnav {
     overflow: hidden;
     background-color: #c21b1d;
@@ -246,6 +250,13 @@ button:hover>a {
 
 .topnav .icon {
     display: none;
+}
+
+.topnav .uk-icon {
+    position: relative;
+    top: -2px;
+    left: -3px;
+    color: #ccc;
 }
 
 .right {

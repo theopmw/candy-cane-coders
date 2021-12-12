@@ -1,4 +1,3 @@
-
 .gifts-heading {
     width: 60%;
     margin: 0 auto;
@@ -38,6 +37,11 @@
 #display-gift img {
     max-height: 40vh;
     width: auto;
+    border-radius: 20px;
+}
+
+#display-gift .shadow {
+    box-shadow: 0px 10px 11px 2px rgba(0, 0, 0, 0.5);
 }
 
 .paper {
