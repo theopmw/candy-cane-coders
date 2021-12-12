@@ -1,62 +1,55 @@
-from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 from random import randint
 from datetime import datetime, timedelta
+import string    
+import random
 
 from profiles.models import Profile
 from wishlists.models import Wishlist
 from countdown.models import Countdown
 from gifts.models import Gift
 
+
 @require_POST
 def increase_day(request):
     if request.user.is_superuser:
         countdown = Countdown.objects.first()
-        day = countdown.day
-        if day <= 10:
+        if countdown.day <= 10:
             countdown.day += 1
             countdown.save()
             return JsonResponse({'status': 200})
         else:
             return JsonResponse({'status': 406, 'message': 'Cannot increase day any more.'}) 
-    else:
+    else: 
         return JsonResponse({'status': 401})
 
 @require_POST
 def set_day_11(request):
     if request.user.is_superuser:
         countdown = Countdown.objects.first()
-        profiles = Profile.objects.all()
-
-        for profile in profiles:
-            profile.wishlist_sender = None
-            profile.gift_given = None
-            profile.gift_received = None
-            profile.save()
-
-        day = countdown.day
         countdown.day = 11
+        countdown.current_date = countdown.start_date + timedelta(days=10)
         countdown.done = False
         countdown.save()
-
         return JsonResponse({'status': 200})
-    else:
+    else: 
         return JsonResponse({'status': 401})
-
 
 @require_POST
 def reset_draw(request):
     if request.user.is_superuser:
+        # reset countdown
         countdown = Countdown.objects.first()
-        profiles = Profile.objects.all()
-
         countdown.day = 1
-        countdown.done = False
-        countdown.start_date = datetime.now()
         countdown.current_date = datetime.now()
+        countdown.start_date = datetime.now()
+        countdown.done = False
         countdown.save()
 
+        # reset profiles / wishlists
+        profiles = Profile.objects.all()
         for profile in profiles:
             profile.wishlist_sender = None
             profile.gift_given = None
@@ -64,51 +57,55 @@ def reset_draw(request):
             profile.save()
 
         return JsonResponse({'status': 200})
-    else:
+    else: 
         return JsonResponse({'status': 401})
 
 
 def create_draw(request):
+    print("Draw Created")
+    # end countdown
     countdown = Countdown.objects.first()
-    wishlists = [wishlist for wishlist in Wishlist.objects.all()]
-    profiles = [profile for profile in Profile.objects.all()]
-    odd_or_even = len(profiles) % 2 # 0 == even, 1 == odd
-
-    while len(profiles) > 0:
-        # get random wishlist index and profile index
-        rand_profile_index = randint(0, len(profiles) - 1)
-        rand_wishlist_index = randint(0, len(wishlists) - 1)
-
-        # get random wishlist and profile
-        rand_profile = profiles[rand_profile_index]
-        rand_wishlist = wishlists[rand_wishlist_index]
-
-        # check that we are not sening gift list to same profile
-        if rand_profile.user.username == rand_wishlist.user.username:
-            continue
-
-        # if an odd number of user, delete the admin
-        if odd_or_even == 1:
-            if rand_profile.user.username == 'admin':
-                del profiles[rand_profile_index]
-                odd_or_even = 0
-                continue
-
-        # if the wishlist is empty - add all items
-        if rand_wishlist.gifts.all().count() == 0:
-            for gift in Gift.objects.all():
-                rand_wishlist.gifts.add(gift)
-                rand_wishlist.save()
-
-        # assign wishlist to profile
-        rand_profile.wishlist_sender = rand_wishlist
-        rand_profile.save()
-
-        # del profile and wishlist from lists
-        del profiles[rand_profile_index]
-        del wishlists[rand_wishlist_index]
-
+    countdown.day = 11
+    countdown.current_date = countdown.start_date + timedelta(days=10)
     countdown.done = True
     countdown.save()
 
+    # reset wishlists in case any are there
+    profiles = Profile.objects.all()
+    for profile in profiles:
+        profile.wishlist_sender = None
+        profile.gift_given = None
+        profile.gift_received = None
+        profile.save()
+
+    # get all wishlists and profiles
+    wishlists = [wishlist for wishlist in Wishlist.objects.all()]
+    profiles = [profile for profile in Profile.objects.all()]
+
+    # if odd number of users - exclude admin
+    if len(profiles) % 2 == 1:
+        wishlists = [wishlist for wishlist in Wishlist.objects.all() if wishlist.user.username != 'admin']
+        profiles = [profile for profile in Profile.objects.all() if profile.user.username != 'admin']
+
+    # for each profile - assign a random wishlist
+    for profile in profiles:
+        random_wishlist_index = 0
+        random_wishlist = None
+
+        while True:
+            random_wishlist_index = randint(0, len(wishlists) - 1)
+            random_wishlist = wishlists[random_wishlist_index]
+            if random_wishlist.user.username != profile.user.username:
+                break
+
+        # if the wishlist is empty - add all gifts
+        if random_wishlist.gifts.all().count() == 0:
+            for gift in Gift.objects.all():
+                random_wishlist.gifts.add(gift)
+                random_wishlist.save()
+        
+        profile.wishlist_sender = random_wishlist
+        profile.save()
+
+        del wishlists[random_wishlist_index]
 

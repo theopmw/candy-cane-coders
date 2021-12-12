@@ -5,7 +5,6 @@ deletes.forEach(gift => gift.addEventListener('click', event => {
     const user_id = event.currentTarget.dataset.user_id;
     const user_name = event.currentTarget.dataset.user_name;
     sendWishlistItem(gift_id, user_id, user_name);
-    console.log(gift_id, user_id, user_name);
 }));
 
 const sendWishlistItem = (gift_id, user_id, user_name) => {

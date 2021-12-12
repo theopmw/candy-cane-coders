@@ -21,6 +21,10 @@
                         {{ gift.name }}
                         <span class="gift-choose uk-text-success uk-float-right">Choose Gift</span>
                     </li>
+                {% empty %}
+                <li>
+                    You're in luck, {{ wishlist.user.username }} did not choose any gifts!
+                </li>
                 {% endfor %}
             </ol>
         </div>

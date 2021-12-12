@@ -41,7 +41,7 @@ function addDay() {
                     pos: 'top-right',
                     timeout: 5000
                 });
-                setTimeout(() => window.location.reload(), 2500);
+                setTimeout(() => window.location.reload(), 1000);
             }
             else if (data.status == 406) {
                 UIkit.notification({
@@ -70,9 +70,9 @@ function setDay11() {
                     message: `Day set to 11 and Secret Santa drawn`,
                     status: 'primary',
                     pos: 'top-right',
-                    timeout: 2500
+                    timeout: 1000
                 });
-                setTimeout(() => window.location.reload(), 2500);
+                setTimeout(() => window.location.reload(), 1000);
             }
             else if (data.status === 401) {
                 UIkit.notification({
@@ -101,9 +101,9 @@ function resetDraw() {
                     message: `Draw has been reset`,
                     status: 'primary',
                     pos: 'top-right',
-                    timeout: 2500
+                    timeout: 1000
                 });
-                setTimeout(() => window.location.reload(), 2500);
+                setTimeout(() => window.location.reload(), 1000);
             }
             else if (data.status === 401) {
                 UIkit.notification({
