@@ -98,7 +98,6 @@ def create_draw(request):
         if rand_wishlist.gifts.all().count() == 0:
             for gift in Gift.objects.all():
                 rand_wishlist.gifts.add(gift)
-                rand_wishlist.gifts.save()
                 rand_wishlist.save()
 
         # assign wishlist to profile

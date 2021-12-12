@@ -10,7 +10,7 @@ function navBarMenu() {
     }
 }
 
-if (!showAdmin) {
+if (!showAdmin && document.getElementById('admin-add-day')) {
     document.getElementById('admin-add-day').addEventListener('click', () => addDay());
     document.getElementById('admin-secret-santa').addEventListener('click', () => setDay11());
     document.getElementById('admin-reset').addEventListener('click', () => resetDraw());

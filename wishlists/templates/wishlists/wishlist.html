@@ -16,9 +16,11 @@
             <li class="item" data-gift_id="{{ gift.id }}">
                 <span class="list-number">{{ forloop.counter }}. </span> 
                 <span class="list-name">{{ gift.name }}</span>
+                {% if day <= 10 %}
                 <span class="delete-item" data-gift_id="{{ gift.id }}">
                     <span uk-icon="trash"></span>
                 </span>
+                {% endif %}
             </li>
         {% empty %}
             <li class="uk-h2">

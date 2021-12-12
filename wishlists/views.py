@@ -10,7 +10,8 @@ def wishlists(request):
     countdown = Countdown.objects.first()
     wishlist = Wishlist.objects.filter(user=request.user).first()
     wishlist = [gift for gift in wishlist.gifts.all() if gift.day <= countdown.day]
-    context = {'wishlist': wishlist}
+    advent = Countdown.objects.first()
+    context = {"wishlist": wishlist, "day": advent.day}
     return render(request, "wishlists/wishlist.html", context)
 
 

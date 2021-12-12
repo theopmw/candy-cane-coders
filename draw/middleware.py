@@ -35,6 +35,5 @@ class DrawMiddleware:
     
 
     def check_if_draw(self, request):
-        print(self.countdown.day)
         if self.countdown.day == 11 and self.countdown.done == False:
             views.create_draw(request)
