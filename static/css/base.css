@@ -336,7 +336,7 @@ button:hover>a {
 
 @media screen and (min-width: 768px) {
     .logo-text {
-        font-size: 4rem;
+        font-size: 3.7rem;
         padding: 0;
         margin: 5px;
     }
@@ -400,6 +400,12 @@ button:hover>a {
         width: unset;
         min-width: 45vw;
         max-width: 70vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .hide-mobile {
+        display: none;
     }
 }
 
