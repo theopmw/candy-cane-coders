@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <!-- UIkit CSS -->
@@ -17,37 +17,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
     {% endblock %}
-    <title>Secret Santa's Candy Cane Countdown {% block extra_title %}{% endblock %}</title>
+    <title>Candy Cane's Secret Santa {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body>
-    <!-- Header -->
-    {% block header %}
-    <header>
-      <div class="logo-container uk-position-top-center uk-flex uk-flex-middle">
-            <img class="logo-image" src="{{ MEDIA_URL }}present.png" alt="Logo gift">
-            <h1 class="logo-text font-candyman">Secret Santa</h1>
-            <img class="logo-image" src="{{ MEDIA_URL }}present.png" alt="Logo gift">   
-      </div>
-    </header>
-    
-    {% endblock %}
-    <!-- Main Content -->
-    <main>
-        {% block content %}
-        
-        {% endblock %}
-    </main>
+<body class="hero-image">
+    <div class="snow-bg">
+        <!-- Header -->
+        {% block header %}
+        <header>
+            {% if request.path != '/' and request.path != '/accounts/signup/' and request.path != '/accounts/login/' and request.path != '/accounts/logout/' %}
+            <nav>
+                <div class="topnav" id="myTopnav"><a href="{% url 'countdown' %}"><span uk-icon="calendar"></span> Countdown Calendar</a>
+                    <a href="{% url 'wishlists' %}"><span uk-icon="list"></span> My Wishlist</a>
+                    <a href="{% url 'gift_given' %}"><span uk-icon="push"> </span> Secret Santa: Sending</a>
+                    <a href="{% url 'gift_received' %}"><span uk-icon="pull"> </span> Secret Santa: Receving</a>
+                    {% if request.user.is_superuser %}
+                    <a>Admin</a>
+                    <div class="uk-container" uk-dropdown=" mode: click">
+                        <button id="admin-add-day" class="admin">Day +1</button>
+                        <button id="admin-secret-santa" class="admin">Set day to 11</button>
+                        <button id="admin-reset" class="admin">Reset draw</button>
+                    </div>
+                    {% endif %}
+                    <a href="{% url 'account_logout' %}" class="right"><span uk-icon="sign-out"> </span>Logout</a>
+                    <a href="javascript:void(0);" class="icon" onclick="navBarMenu()">
+                        <span uk-icon="menu"></span>
+                    </a>
+                </div>
+            </nav>
+            {% endif %}
 
-    {% block footer %}
-    {% endblock %}
+            <div class="logo-container uk-flex uk-flex-middle uk-flex-center">
+                <img class="logo-image" src="{% static 'images/present.png' %}" alt="Logo gift">
+
+                <a href="{% url 'index' %}" class="logo-text font-candyman"><span class="hide-mobile">Candy Cane's </span>Secret Santa</a>
+
+                <img class="logo-image" src="{% static 'images/present.png' %}" alt="Logo gift">
+            </div>
+        </header>
+
+        {% endblock %}
+        <!-- Main Content -->
+        <main>
+            <!-- Nav bar -->
+            {% block content %}{% endblock %}
+        </main>
+
+        {% block footer %}
+        {% endblock %}
+    </div>
 
     <!-- JavaScript -->
     <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'js/cookie.js' %}"></script>
     <!-- Additional JS -->
     {% block js %}
     {% endblock %}

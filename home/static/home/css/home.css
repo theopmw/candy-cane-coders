@@ -1,16 +1,16 @@
-
 .home-main {
+
     width: 80vw;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .about-button {
-    width: 64vw;
+    max-width: 700px;
     display: block;
-    margin: 1% auto;
+    margin: 20px auto 20px;
     min-width: 200px;
 }
 
@@ -25,18 +25,13 @@
     background: #5e0d0c;
     border: 2px solid 000;
     border-radius: 10px;
-    width: 80%;
+    max-width: 700px;
     margin: 10px auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
     overflow: visible;
-    /* IE9 & 10 */
-    -webkit-transition: 500ms linear;
-    -moz-transition: 500ms linear;
-    -o-transition: 500ms linear;
-    transition: 500ms linear;
     outline: none;
     border-radius: 15px;
     border: 1px solid #4c0300;
@@ -79,11 +74,19 @@
         /* gradient */
         1px 1px 3px rgba(0, 0, 0, 0.75);
     /* shadow */
+    /* IE9 & 10 */
+    -webkit-transition: 500ms linear;
+    -moz-transition: 500ms linear;
+    -o-transition: 500ms linear;
+    transition: 500ms linear;
 }
 
 .about:focus {
     outline: none;
-    /*FF*/
+}
+
+.home-about {
+    font-family: 'Fuzzy Bubbles';
 }
 
 .about:active {
@@ -108,7 +111,26 @@
         top: unset;
         transform: unset;
         position: static;
-        margin: 5% auto;
+
+        margin: 15% auto;
         padding: 5% 0;
+    }
+
+    #about-h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #about-h3 {
+        font-size: 1rem;
+    }
+
+    .about {
+        width: 100%;
+    }
+
+    .about-button {
+        width: 80vw;
     }
 }

@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap');
 
 @font-face {
-  font-family: 'Candy Time';
-  src: url('../fonts/candy_time.ttf') format("truetype");
+    font-family: 'Candy Time';
+    src: url('../fonts/candy_time.ttf') format("truetype");
 }
 
 @font-face {
-  font-family: 'Candyman';
-  src: url('../fonts/candyman.ttf') format("truetype");
+    font-family: 'Candyman';
+    src: url('../fonts/candyman.ttf') format("truetype");
 }
 
 body {
@@ -22,19 +23,40 @@ main {
     flex-grow: 1;
 }
 
-.button {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+}
+
+.hero-image {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/xmas-bg-03.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.button,
+.uk-notification-message {
     justify-content: center;
     align-items: center;
+    text-align: center;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     min-width: 100px;
-    padding: 22px 33px;
+    padding: 15px 22px;
     font-family: 'Architects Daughter', cursive;
-    font-size: 26px;
-    line-height: 26px;
+    font-size: 1rem;
+    line-height: 1rem;
     text-decoration: none;
-    color: #FFF;
+    color: #f5f5f5;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
     background: #5e0d0c;
     outline: none;
@@ -54,7 +76,8 @@ main {
     overflow: visible;
 }
 
-.button::before {
+.button::before,
+.uk-notification-message:before {
     content: '';
     display: block;
     position: absolute;
@@ -91,7 +114,6 @@ main {
 
 .button:focus {
     outline: none;
-    /*FF*/
 }
 
 .button:active {
@@ -119,18 +141,21 @@ main {
 
 .font-candyman {
     font-family: "Candyman", sans-serif;
-    color:#923226;
+    color: #dd4330;
 }
 
 .logo-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 0;
     margin: 5px;
 }
-
+.logo-text:hover, a:hover{
+    text-decoration: none ;
+    color:green;
+}
 .logo-image {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     padding: 0;
     margin: 10px 5px 20px 5px;
 }
@@ -138,10 +163,20 @@ main {
 /* ALLAUTH */
 .allauth-container {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
-    max-width: 80vw;
+    width: 90vw;
     transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    border-radius: 25px;
+    color: #f5f5f5;
+    font-size: .8rem;
+    padding: 20px;
+}
+
+.allauth-container h1 {
+    color: #f5f5f5;
+    font-size: 1rem;
 }
 
 .allauth-form {
@@ -149,13 +184,163 @@ main {
     margin: auto;
 }
 
+.allauth-form input[type=text],
+input[type=password],
+input[type=email] {
+    width: 100%;
+    padding: 4px 10px;
+    margin: 0;
+    box-sizing: border-box;
+    border: 2px solid #dd4330;
+    border-radius: 4px;
+}
+
+.allauth-form label {
+    font-weight: bold;
+}
+
+.allauth-form .button {
+    width: 100%;
+}
+
+.allauth-form .right {
+    float: right;
+}
+
+button>a {
+    text-decoration: none;
+    color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+}
+
+button:hover>a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.uk-notification-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
+
+.uk-dropdown {
+    background: #892118;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.uk-dropdown .admin {
+    background: #892118;
+    color: white;
+    border: 1px solid #000;
+    padding: 2px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.uk-dropdown .admin:hover {
+    background: #b42c20;
+    transition: .2s;;
+}
+
+
+/* Nav Bar */
+.topnav {
+    overflow: hidden;
+    background-color: #c21b1d;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'Architects Daughter';
+}
+
+.topnav a:hover {
+    color: #3d8f12;
+    font-weight: bold;
+    transition: 500ms;
+    background-color: #891213;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.topnav .uk-icon {
+    position: relative;
+    top: -2px;
+    left: -3px;
+    color: #ccc;
+}
+
+.admin {
+    margin: 10px;
+}
+
+.right {
+    float: right;
+}
+
+@media screen and (max-width: 900px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .topnav.responsive {
+        position: absolute;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 375px) {
+
+    .allauth-container {
+        top: 50%;
+    }
+
+    .allauth-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
 @media screen and (min-width: 768px) {
     .logo-text {
-        font-size: 4rem;
+        font-size: 3.7rem;
         padding: 0;
         margin: 5px;
     }
-    
+
     .logo-image {
         height: 3rem;
         width: 3rem;
@@ -163,19 +348,74 @@ main {
         margin: 11px 5px 20px 5px;
     }
 
+    .button {
+        padding: 22px 33px;
+        font-size: 26px;
+        line-height: 26px;
+    }
+
+    .allauth-container {
+        width: unset;
+        min-width: 60vw;
+        font-size: unset;
+    }
+
+    .allauth-form {
+        font-size: unset;
+    }
+
+    .allauth-form input[type=text],
+    input[type=password],
+    input[type=email] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid red;
+        border-radius: 4px;
+    }
+
+    .allauth-container h1 {
+        font-size: 2rem;
+    }
 }
+
 
 @media screen and (min-width: 960px) {
     .logo-text {
-        font-size: 6rem;
+        font-size: 4rem;
         padding: 0;
         margin: 5px;
     }
-    
+
     .logo-image {
-        height: 5rem;
-        width: 5rem;
+        height: 3rem;
+        width: 3rem;
         padding: 0;
         margin: 5px 5px 20px 5px;
+    }
+
+
+    .allauth-container {
+        width: unset;
+        min-width: 45vw;
+        max-width: 70vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .hide-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .allauth-container {
+        position: relative;
+        top: unset;
+        left: unset;
+        width: 90vw;
+        transform: translate(0%, 0%);
+        margin: 100px auto 20px;
     }
 }
