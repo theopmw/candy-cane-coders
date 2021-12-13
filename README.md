@@ -1,70 +1,82 @@
-# **Candy Cane Coders Secret Santa's Countdown**
-Candy Cane Coders is a website designed for companies that may want to do a Secret Santa in the workplace. The team signs up and as each day passes are able to choose a gift to add to their secret santa wishlist. When the countdown timer finishes the users wishlist is assigned to another user and they receive a random users wishlist in return. The user can then select 1 gift from the wishlist to send, whilst they will also receive 1 in return. 
+# Candy Cane's Secret Santa
 
-""""""Insert amiresponsive image here""""""""""
+## [Contents](#contents)
 
-## **Table of Contents**
-* [**Planning Stage**](#planning-stage)
-  * Project Goals
-  * User Goals
-  * User Stories
-  * Design Goals
-  * Design Choices
-    * Font
-    * Color Scheme
-  * Wireframes
-* [**Features**](#features)
-  * Existing Features
-  * Features Left to Implement
-  * Languages
-  * Frameworks
-  * Database
-  * Extensions and kits
-  * Project Management
-  * Tools
-* [**Deployment**](#deployment)
-  * Requirements
-* [**Testing**](#testing)
-* [**Credits**](#testing)
+[UX](#ux)
 
+- [User stories](#user-stories)
 
-## **Planning Stage**
+- [Design](#design)
+
+- [Wireframes](#wireframes)
+
+[Database Model](#database-model)
+
+[Features](#features)
+
+- [Existing Features](#existing-features)
+
+- [Features Left to Implement](#features-left-to-implement)
+
+[Technoloies Used](#technologies-used)
+
+[Deployment](#deployment)
+
+[Testing](#testing)
+
+[Credits](#credits)
+
+![mockup](wireframes/all-devices-black.png)
+
+## **UX**
+
+### **Overview**
+
+Ho Ho Ho...!!! Still can’t figure out what to get for your co-workers? We’ve got you covered! Candy Cane’s Secret Santa is a virtual secret Santa app from the north pole! Sending and receiving a virtual gift to spice up the holiday season, or get a real gift from the suggestions! The choice is yours! 
+
+[Github Repository](https://github.com/nazarja/candy-cane-coders)
+
+[Live Site](https://candy-canes-secret-santa.herokuapp.com/)
 
 ### Project Goals
+
 The goal of this project was to create a Christmas themed site with the goal to be able to take the stress out of picking a secret santa gift. 
 
 ### User Goals
+
 The target user is a group of people who would like to do secret santa.
  * A group of work colleagues or a specific department.
  * A group of friends.
  * A large family.
  * An online group. e.g. Reddit Secrfet Santa. 
 
- ### User Stories
+### User Stories
  * As a user I want the site to be easy to use and easy to navigate.
  * As a user I want the site to get me in the Chrismas spirit.
  * As a user I want to be able to control my gift wishlist.
  * As a user I want the hassle of trying to pick a secret santa gift taken care of for me.
 
- ### Design Goals
+### **Design**
+
+### Design Goals
  * A simple Christmas themed site that works on all devices.
  * Ease of navigation.
  * Be fun enough for users to return to the site.
 
-### Design Choices
- 
- #### Font
- Keeping in the Christmas theme we decided on the following fonts:
+#### **Color Scheme:**
+
+In the spirit of Christmas, we have decided on a Red White and Green theme, with Red being the dominant color. All text on the site is easy to read with good contrast. 
+
+#### **Fonts**
+
+Keeping in the Christmas theme we decided on the following fonts:
   * [Architects Daughter](https://fonts.google.com/specimen/Architects+Daughter?query=archite)
   * [Fuzzy Bubbles](https://fonts.google.com/specimen/Fuzzy+Bubbles?query=fuzzy+bubbles)
   * [Candyman](https://www.cdnfonts.com/candyman.font)
 
-These fonts give the overall presentation of the site a Christmas feel, with the Candyman font being used for the site logo and for information boxes within the site. 
-
-### **Color Scheme:**
-In the spirit of Christmas, we have decided on a Red White and Green theme, with Red being the dominant color. All text on the site is easy to read with good contrast. 
 
 ### **Wireframes:**
+
 To help keep the design scope, wireframes were created for the proposed pages of the site. There was some deviation from the initial design as each page was implemented to improve the user experience but in general it stayed true to the initial design. 
 
 * Mobile Wireframes:
@@ -138,7 +150,6 @@ A relational database is best suited to this project given the number of relatio
 
 - [Django](https://www.djangoproject.com/)
 
-
 ### **Database**
 
 - [sqlite3](https://www.sqlite.org/index.html)
@@ -183,7 +194,6 @@ A relational database is best suited to this project given the number of relatio
 
 
 ### **How to Candy Cane's Secret Santa and run locally**
-
 
 To clone this project from its [GitHub repository](https://github.com/nazarja/candy-cane-coders):
 
@@ -249,6 +259,7 @@ python manage.py createsuperuser
 ```
 
 13.The app can now be running loacally using:
+
 ```
 python manage.py runserver
 ```
@@ -367,6 +378,10 @@ git push heroku main
 
 ## **Testing**
 
+### **User Stories**
+
+### **Overall user expectations**
+
 #### **Easy navigation**
 
 - Heading descriptive of the content displayed.
@@ -406,6 +421,16 @@ git push heroku main
 - Red and green Christmas colors throughout the whole site.
 
 - Simple fonts ensure readability and bring content together.
+
+### **As a user I want to ...**
+
+**Immediately understand the purpose of the site and what it can provide**
+
+- The logo and name immediately spell out the purpose and the tone of the site.
+
+- The hero image tells the user, the website is something to do with Chiristmas.
+
+- The header tells the user the purpose of the site.
 
 **Find out how does it work**
 
