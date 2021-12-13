@@ -1,7 +1,52 @@
 # Candy Cane's  Secret Santa
 
-### **Color Scheme:**
+## [Contents](#contents)
+
+[UX](#ux)
+
+- [User stories](#user-stories)
+
+- [Design](#design)
+
+- [Wireframes](#wireframes)
+
+[Database Model](#database-model)
+
+[Features](#features)
+
+- [Existing Features](#existing-features)
+
+- [Features Left to Implement](#features-left-to-implement)
+
+[Technoloies Used](#technologies-used)
+
+[Deployment](#deployment)
+
+[Testing](#testing)
+
+[Credits](#credits)
+
+![mockup](wireframes/all-devices-black.png)
+
+## **UX**
+
+### **Overview**
+
+Ho Ho Ho...!!! Still can’t figure out what to get for your co-workers? We’ve got you covered! Candy Cane’s Secret Santa is a virtual secret Santa app from the north pole! Sending and receiving a virtual gift to spice up the holiday season, or get a real gift from the suggestions! The choice is yours! 
+
+[Github Repository](https://github.com/nazarja/candy-cane-coders)
+
+[Live Site](https://candy-canes-secret-santa.herokuapp.com/)
+
+### **User stories**
+
+### **Design**
+
+#### **Color Scheme:**
+
 In the spirit of Christmas, we have decided on a Red White and Green theme, with Red being the dominant color. All text on the site is easy to read with good contrast. 
+
+#### **Fonts**
 
 ### **Wireframes:**
 To help keep the design scope, wireframes were created for the proposed pages of the site. There was some deviation from the initial design as each page was implemented to improve the user experience but in general it stayed true to the initial design. 
@@ -64,7 +109,6 @@ A relational database is best suited to this project given the number of relatio
 
 - [Django](https://www.djangoproject.com/)
 
-
 ### **Database**
 
 - [sqlite3](https://www.sqlite.org/index.html)
@@ -107,9 +151,8 @@ A relational database is best suited to this project given the number of relatio
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html#) - hosting static files
 
-<details>
-<summary>How to Candy Cane's Secret Santa and run locally</summary>
-<br>
+
+### **How to Candy Cane's Secret Santa and run locally**
 
 To clone this project from its [GitHub repository](https://github.com/nazarja/candy-cane-coders):
 
@@ -175,12 +218,12 @@ python manage.py createsuperuser
 ```
 
 13.The app can now be running loacally using:
+
 ```
 python manage.py runserver
 ```
-<details>
-<summary>How to deploy to Heroku</summary>
-<br>
+
+### **How to deploy to Heroku**
 
 1.Log In to Heroku
 
