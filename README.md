@@ -1,4 +1,65 @@
-# Candy Cane's  Secret Santa
+# **Candy Cane Coders Secret Santa's Countdown**
+Candy Cane Coders is a website designed for companies that may want to do a Secret Santa in the workplace. The team signs up and as each day passes are able to choose a gift to add to their secret santa wishlist. When the countdown timer finishes the users wishlist is assigned to another user and they receive a random users wishlist in return. The user can then select 1 gift from the wishlist to send, whilst they will also receive 1 in return. 
+
+""""""Insert amiresponsive image here""""""""""
+
+## **Table of Contents**
+* [**Planning Stage**](#planning-stage)
+  * Project Goals
+  * User Goals
+  * User Stories
+  * Design Goals
+  * Design Choices
+    * Font
+    * Color Scheme
+  * Wireframes
+* [**Features**](#features)
+  * Existing Features
+  * Features Left to Implement
+  * Languages
+  * Frameworks
+  * Database
+  * Extensions and kits
+  * Project Management
+  * Tools
+* [**Deployment**](#deployment)
+  * Requirements
+* [**Testing**](#testing)
+* [**Credits**](#testing)
+
+
+## **Planning Stage**
+
+### Project Goals
+The goal of this project was to create a Christmas themed site with the goal to be able to take the stress out of picking a secret santa gift. 
+
+### User Goals
+The target user is a group of people who would like to do secret santa.
+ * A group of work colleagues or a specific department.
+ * A group of friends.
+ * A large family.
+ * An online group. e.g. Reddit Secrfet Santa. 
+
+ ### User Stories
+ * As a user I want the site to be easy to use and easy to navigate.
+ * As a user I want the site to get me in the Chrismas spirit.
+ * As a user I want to be able to control my gift wishlist.
+ * As a user I want the hassle of trying to pick a secret santa gift taken care of for me.
+
+ ### Design Goals
+ * A simple Christmas themed site that works on all devices.
+ * Ease of navigation.
+ * Be fun enough for users to return to the site.
+
+### Design Choices
+ 
+ #### Font
+ Keeping in the Christmas theme we decided on the following fonts:
+  * [Architects Daughter](https://fonts.google.com/specimen/Architects+Daughter?query=archite)
+  * [Fuzzy Bubbles](https://fonts.google.com/specimen/Fuzzy+Bubbles?query=fuzzy+bubbles)
+  * [Candyman](https://www.cdnfonts.com/candyman.font)
+
+These fonts give the overall presentation of the site a Christmas feel, with the Candyman font being used for the site logo and for information boxes within the site. 
 
 ### **Color Scheme:**
 In the spirit of Christmas, we have decided on a Red White and Green theme, with Red being the dominant color. All text on the site is easy to read with good contrast. 
@@ -45,8 +106,21 @@ A relational database is best suited to this project given the number of relatio
 ## **Features**
 
 ### **Existing Features**
+  * Users are able to to view a gift and choose to add it to their wish list or not.
+  * Every day a new box will open and the user can choose to add it to their wishlist.
+  * On day 11 all gifts on the countdown page are no longer able to be picked. A draw is made matching users with each other.
+  ![Wishlist](static/images/readme/wishlist.png)
+  * Users can view their wishlist and delete items from their wishlist.
+  ![My Wishlist](static/images/readme/my-wishlist.png)
+  * Once matched, the user can see their matched users wishlist and can choose 1 gift from the list to send to them.
+  ![My Wishlist](static/images/readme/wishlist-send.png)
+  * Once a users secret santa has picked their gift, it can be seen in the gifts received page. 
+  ![Wishlist Sent](static/images/readme/wishlist-sent.png)
 
 ### **Features Left to Implement**
+  * Give users the option to pick 1 of 3 gifts per day with the gifts randomly chosen.
+  * Hide the gift the user has received from their secret santa until Christmas day and implement a timer to replace the countdown page timer until Christmas day. 
+  * Ability for the admin to add/remove gifts from the database to customise the gifts available based on budgets set.
 
 ### **Languages**
 
@@ -107,9 +181,9 @@ A relational database is best suited to this project given the number of relatio
 
 [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html#) - hosting static files
 
-<details>
-<summary>How to Candy Cane's Secret Santa and run locally</summary>
-<br>
+
+### **How to Candy Cane's Secret Santa and run locally**
+
 
 To clone this project from its [GitHub repository](https://github.com/nazarja/candy-cane-coders):
 
@@ -178,9 +252,8 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
-<details>
-<summary>How to deploy to Heroku</summary>
-<br>
+
+### **How to deploy to Heroku**
 
 1.Log In to Heroku
 
@@ -291,11 +364,8 @@ git push heroku main
 
 27.Go to **Connect to GitHub** enter your GitHub repository details and once found, click **Connect**, under **Automatic deploys** choose **Enable Automatic Deploys**
 
+
 ## **Testing**
-
-### **User Stories**
-
-### **Overall user expectations**
 
 #### **Easy navigation**
 
@@ -337,20 +407,12 @@ git push heroku main
 
 - Simple fonts ensure readability and bring content together.
 
-### **As a user I want to ...**
-
-**Immediately understand the purpose of the site and what it can provide**
-
-- The logo and name immediately spell out the purpose and the tone of the site.
-
-- The hero image tells the user, the website is something to do with Chiristmas.
-
-- The header tells the user the purpose of the site.
-
 **Find out how does it work**
 
 - The about section on the home page explains to the user how the site works.
 
 ## **Credits**
 
-### **Acknowledgements**
+* The hero image and background images were taken from [Pexels](https://www.pexels.com/)
+* The falling snow animation was taken from [Giphy](https://giphy.com/explore/snow-sticker)
+* The Favicon and present icon was taken from [Icons8](https://icons8.com/)
